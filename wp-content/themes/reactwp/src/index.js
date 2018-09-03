@@ -29,6 +29,12 @@ const store = createStore(
 	)
 );
 
+
+
+// store.subscribe(()=>{
+//     console.log('subscribe', store.getState());
+// });
+
 import Blog from './containers/blog';
 import Search from './containers/search';
 import Category from './containers/category';

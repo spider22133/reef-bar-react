@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {fetchStaticHomePage} from '../actions/index';
+import {fetchSEOHomePage} from '../actions/index';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -9,24 +9,25 @@ import Footer from '../components/footer';
 class FrontPage extends Component {
 
     componentWillMount() {
-        this.props.fetchStaticHomePage();
+        this.props.fetchSEOHomePage();
     }
 
-
     componentDidUpdate() {
-        // document.title = `${this.props.static_page.id}`;
-        console.log(this.props.id);
+         document.title = `${this.props.pageData.title}`;
     }
 
     render() {
+
         const staticHomepageId = RT_API.staticHomepageId;
+        const {title} = this.props.pageData;
+
 
         return (
         <section className="container-fluid template-single">
             <Header/>
-                 <span>
+                 <div>
 
-                 </span>
+                 </div>
             <Footer/>
         </section>
         )
@@ -34,7 +35,9 @@ class FrontPage extends Component {
 }
 
 function mapStateToProps(state) {
-    return state;
+    return {
+        pageData: state.static_page
+    };
 }
 
-export default connect(mapStateToProps, {fetchStaticHomePage})(FrontPage)
+export default connect(mapStateToProps, {fetchSEOHomePage})(FrontPage)

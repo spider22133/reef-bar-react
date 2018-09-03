@@ -3,6 +3,7 @@ import {connect, dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {fetchPosts, ROUTER} from '../actions/index';
+import {fetchPost} from '../actions/index';
 
 import Header from '../components/header';
 import Main from '../components/main';
@@ -29,11 +30,11 @@ class Blog extends Component {
 
     componentDidUpdate() {
         // console.log(1232342354);
-
          document.title = `${RT_API.siteName} - ${RT_API.siteDescription}`;
     }
 
     render() {
+        console.log( this.props.fetchPost(this.props.location.pathname));
         return (
             <section className="container-fluid template-blog">
                 <Header/>

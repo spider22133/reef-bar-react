@@ -10,7 +10,7 @@ import Footer from '../components/footer';
 class Single extends Component {
     componentWillMount() {
         this.props.fetchPost(this.props.location.pathname);
-        console.log( this.props.location.pathname);
+        // console.log( this.props.location.pathname);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -25,6 +25,7 @@ class Single extends Component {
     }
 
     render() {
+
         return (
             <section className="container-fluid template-single">
                 <Header/>
@@ -37,7 +38,7 @@ class Single extends Component {
 
 
 function mapStateToProps({posts}) {
-
+    console.log({posts});
     return {posts};
 }
 

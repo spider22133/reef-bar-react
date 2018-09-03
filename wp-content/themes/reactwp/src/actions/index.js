@@ -3,7 +3,7 @@ import axios from 'axios';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const FETCH_PAGES = 'FETCH_PAGES';
-export const FETCH_STATIC_PAGE  = 'FETCH_STATIC_PAGE';
+export const FETCH_SPAGE  = 'FETCH_SPAGE';
 export const SEARCH_POSTS = 'SEARCH_POSTS';
 export const CATEGORY_POSTS = 'CATEGORY_POSTS';
 export const FETCH_CAT_INFO = 'FETCH_CAT_INFO';
@@ -18,13 +18,14 @@ const PRETTYPERMALINK_ENDPOINT = `${RT_API.root}react-theme/v1/prettyPermalink/`
 const MENU_ENDPOINT = `${RT_API.root}react-theme/v1/menu-locations/`;
 
 
-export function fetchStaticHomePage() {
+export function fetchSEOHomePage() {
     return function (dispatch) {
         axios.get(`${WP_API_ENDPOINT}/frontpage`)
             .then(response => {
+                // console.log();
                 dispatch({
-                    type: FETCH_STATIC_PAGE,
-                    payload: response.data
+                    type: FETCH_SPAGE,
+                    payload: response.data.yoast
                 });
             });
     }
