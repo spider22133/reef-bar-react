@@ -7,7 +7,7 @@ import Search from './search';
 class Header extends Component {
     render() {
         return (
-            <header className="navbar navbar-expand-lg navbar-light bg-light">
+            <header className="navbar navbar-expand-lg navbar-light bg-light position-fixed">
                 <h1 className="navbar-brand"><Link to='/'>{RT_API.siteName}</Link></h1>
                 <nav className="collapse navbar-collapse">
                     <Menu name="main_menu" />

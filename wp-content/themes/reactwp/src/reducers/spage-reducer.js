@@ -5,7 +5,8 @@ export default (state = [], action) => {
         case FETCH_SPAGE:
             return {
                 title: action.payload.yoast.title,
-                content: action.payload.content.rendered
+                content: action.payload.content.rendered,
+                video: action.payload.acf.full_width_video_url,
             };
     }
     return state;

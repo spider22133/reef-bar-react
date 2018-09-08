@@ -19,16 +19,28 @@ class FrontPage extends Component {
     render() {
 
         const staticHomepageId = RT_API.staticHomepageId;
-        const {title, content} = this.props.pageData;
+        const {title, content, video} = this.props.pageData;
 
 
         return (
-            <section className="container-fluid template-single">
+            <section className="container-fluid template-single p-0">
                 <Header/>
                 <div>
-                    <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U'/>
+                    <ReactPlayer url={video}
+                                 config={{
+                                     youtube: {
+                                         playerVars: { showinfo: 0 }
+                                     }
+                                 }}
+                                 playing
+                                 volume="0.1"
+                                 loop
+                                 muted
+                                 width="100%"
+                                 height="100vh"
+                    />
                 </div>
-                <div dangerouslySetInnerHTML={{__html: content}} />
+                <div dangerouslySetInnerHTML={{__html: content}}/>
                 <Footer/>
             </section>
         )
