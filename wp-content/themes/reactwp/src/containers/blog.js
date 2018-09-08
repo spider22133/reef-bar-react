@@ -3,7 +3,6 @@ import {connect, dispatch} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {fetchPosts, ROUTER} from '../actions/index';
-import {fetchPost} from '../actions/index';
 
 import Header from '../components/header';
 import Main from '../components/main';
@@ -34,7 +33,6 @@ class Blog extends Component {
     }
 
     render() {
-        console.log( this.props.fetchPost(this.props.location.pathname));
         return (
             <section className="container-fluid template-blog">
                 <Header/>

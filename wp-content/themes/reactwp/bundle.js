@@ -39280,7 +39280,7 @@ exports.__RewireAPI__ = _RewireAPI__;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports,'__esModule',{value:!0});var _redux=__webpack_require__(41),_postsReducer=__webpack_require__(462),_postsReducer2=_interopRequireDefault(_postsReducer),_spageReducer=__webpack_require__(516),_spageReducer2=_interopRequireDefault(_spageReducer),_menuReducer=__webpack_require__(483),_menuReducer2=_interopRequireDefault(_menuReducer),_tagReducer=__webpack_require__(484),_tagReducer2=_interopRequireDefault(_tagReducer),_catReducer=__webpack_require__(485),_catReducer2=_interopRequireDefault(_catReducer),_commentsReducer=__webpack_require__(486),_commentsReducer2=_interopRequireDefault(_commentsReducer),_routerMatchReducer=__webpack_require__(487),_routerMatchReducer2=_interopRequireDefault(_routerMatchReducer);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}exports.default=(0,_redux.combineReducers)({posts:_postsReducer2.default,static_page:_spageReducer2.default,menu:_menuReducer2.default,tags:_tagReducer2.default,cat:_catReducer2.default,comments:_commentsReducer2.default,routerMatch:_routerMatchReducer2.default});
+Object.defineProperty(exports,'__esModule',{value:!0});var _redux=__webpack_require__(41),_postsReducer=__webpack_require__(462),_postsReducer2=_interopRequireDefault(_postsReducer),_spageReducer=__webpack_require__(482),_spageReducer2=_interopRequireDefault(_spageReducer),_menuReducer=__webpack_require__(483),_menuReducer2=_interopRequireDefault(_menuReducer),_tagReducer=__webpack_require__(484),_tagReducer2=_interopRequireDefault(_tagReducer),_catReducer=__webpack_require__(485),_catReducer2=_interopRequireDefault(_catReducer),_commentsReducer=__webpack_require__(486),_commentsReducer2=_interopRequireDefault(_commentsReducer),_routerMatchReducer=__webpack_require__(487),_routerMatchReducer2=_interopRequireDefault(_routerMatchReducer);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}exports.default=(0,_redux.combineReducers)({posts:_postsReducer2.default,static_page:_spageReducer2.default,menu:_menuReducer2.default,tags:_tagReducer2.default,cat:_catReducer2.default,comments:_commentsReducer2.default,routerMatch:_routerMatchReducer2.default});
 
 /***/ }),
 /* 462 */
@@ -40180,7 +40180,13 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 482 */,
+/* 482 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,'__esModule',{value:!0});var _actions=__webpack_require__(13);exports.default=function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:[],b=arguments[1];switch(b.type){case _actions.FETCH_SPAGE:return b.payload;}return a};
+
+/***/ }),
 /* 483 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40220,7 +40226,7 @@ Object.defineProperty(exports,'__esModule',{value:!0});var _actions=__webpack_re
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports,'__esModule',{value:!0});var _createClass=function(){function a(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,'value'in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),_react=__webpack_require__(1),_react2=_interopRequireDefault(_react),_reactRedux=__webpack_require__(15),_redux=__webpack_require__(41),_index=__webpack_require__(13),_header=__webpack_require__(58),_header2=_interopRequireDefault(_header),_main=__webpack_require__(66),_main2=_interopRequireDefault(_main),_footer=__webpack_require__(59),_footer2=_interopRequireDefault(_footer);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError('Cannot call a class as a function')}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return b&&('object'==typeof b||'function'==typeof b)?b:a}function _inherits(a,b){if('function'!=typeof b&&null!==b)throw new TypeError('Super expression must either be null or a function, not '+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}var Blog=function(a){function b(){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).apply(this,arguments))}return _inherits(b,a),_createClass(b,[{key:'componentWillMount',value:function componentWillMount(){this.props.fetchPosts(this.props.match.params.pageNum||1),this.props.dispatch({type:_index.ROUTER,payload:this.props.match})}},{key:'componentWillReceiveProps',value:function componentWillReceiveProps(a){(this.props.match.params.pageNum!==a.match.params.pageNum||this.props.location.pathname!==a.location.pathname)&&(this.props.fetchPosts(a.match.params.pageNum||1),this.props.dispatch({type:_index.ROUTER,payload:a.match}))}},{key:'componentDidUpdate',value:function componentDidUpdate(){document.title=RT_API.siteName+' - '+RT_API.siteDescription}},{key:'render',value:function render(){return console.log(this.props.fetchPost(this.props.location.pathname)),_react2.default.createElement('section',{className:'container-fluid template-blog'},_react2.default.createElement(_header2.default,null),_react2.default.createElement(_main2.default,null),_react2.default.createElement(_footer2.default,null))}}]),b}(_react.Component);function mapDispatchToProps(a){return(0,_redux.bindActionCreators)(Object.assign({fetchPosts:_index.fetchPosts,dispatch:a}),a)}exports.default=(0,_reactRedux.connect)(null,mapDispatchToProps)(Blog);
+Object.defineProperty(exports,'__esModule',{value:!0});var _createClass=function(){function a(a,b){for(var c,d=0;d<b.length;d++)c=b[d],c.enumerable=c.enumerable||!1,c.configurable=!0,'value'in c&&(c.writable=!0),Object.defineProperty(a,c.key,c)}return function(b,c,d){return c&&a(b.prototype,c),d&&a(b,d),b}}(),_react=__webpack_require__(1),_react2=_interopRequireDefault(_react),_reactRedux=__webpack_require__(15),_redux=__webpack_require__(41),_index=__webpack_require__(13),_header=__webpack_require__(58),_header2=_interopRequireDefault(_header),_main=__webpack_require__(66),_main2=_interopRequireDefault(_main),_footer=__webpack_require__(59),_footer2=_interopRequireDefault(_footer);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}function _classCallCheck(a,b){if(!(a instanceof b))throw new TypeError('Cannot call a class as a function')}function _possibleConstructorReturn(a,b){if(!a)throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return b&&('object'==typeof b||'function'==typeof b)?b:a}function _inherits(a,b){if('function'!=typeof b&&null!==b)throw new TypeError('Super expression must either be null or a function, not '+typeof b);a.prototype=Object.create(b&&b.prototype,{constructor:{value:a,enumerable:!1,writable:!0,configurable:!0}}),b&&(Object.setPrototypeOf?Object.setPrototypeOf(a,b):a.__proto__=b)}var Blog=function(a){function b(){return _classCallCheck(this,b),_possibleConstructorReturn(this,(b.__proto__||Object.getPrototypeOf(b)).apply(this,arguments))}return _inherits(b,a),_createClass(b,[{key:'componentWillMount',value:function componentWillMount(){this.props.fetchPosts(this.props.match.params.pageNum||1),this.props.dispatch({type:_index.ROUTER,payload:this.props.match})}},{key:'componentWillReceiveProps',value:function componentWillReceiveProps(a){(this.props.match.params.pageNum!==a.match.params.pageNum||this.props.location.pathname!==a.location.pathname)&&(this.props.fetchPosts(a.match.params.pageNum||1),this.props.dispatch({type:_index.ROUTER,payload:a.match}))}},{key:'componentDidUpdate',value:function componentDidUpdate(){document.title=RT_API.siteName+' - '+RT_API.siteDescription}},{key:'render',value:function render(){return _react2.default.createElement('section',{className:'container-fluid template-blog'},_react2.default.createElement(_header2.default,null),_react2.default.createElement(_main2.default,null),_react2.default.createElement(_footer2.default,null))}}]),b}(_react.Component);function mapDispatchToProps(a){return(0,_redux.bindActionCreators)(Object.assign({fetchPosts:_index.fetchPosts,dispatch:a}),a)}exports.default=(0,_reactRedux.connect)(null,mapDispatchToProps)(Blog);
 
 /***/ }),
 /* 489 */
@@ -41375,13 +41381,6 @@ Object.defineProperty(exports,'__esModule',{value:!0});var _createClass=function
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 516 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports,'__esModule',{value:!0});var _actions=__webpack_require__(13);exports.default=function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:[],b=arguments[1];switch(b.type){case _actions.FETCH_SPAGE:return b.payload;}return a};
 
 /***/ })
 /******/ ]);
