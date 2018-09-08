@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import ReactPlayer from 'react-player'
 import {fetchSEOHomePage} from '../actions/index';
 
 import Header from '../components/header';
@@ -13,23 +13,24 @@ class FrontPage extends Component {
     }
 
     componentDidUpdate() {
-         document.title = `${this.props.pageData.title}`;
+        document.title = `${this.props.pageData.title}`;
     }
 
     render() {
 
         const staticHomepageId = RT_API.staticHomepageId;
-        const {title} = this.props.pageData;
+        const {title, content} = this.props.pageData;
 
 
         return (
-        <section className="container-fluid template-single">
-            <Header/>
-                 <div>
-
-                 </div>
-            <Footer/>
-        </section>
+            <section className="container-fluid template-single">
+                <Header/>
+                <div>
+                    <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U'/>
+                </div>
+                <div dangerouslySetInnerHTML={{__html: content}} />
+                <Footer/>
+            </section>
         )
     }
 }
