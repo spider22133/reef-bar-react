@@ -11,7 +11,7 @@ export default class Footer extends Component {
     render() {
         return (
             <footer>
-                <Menu name="footer_menu"/>
+                {/*<Menu name="footer_menu"/>*/}
                 <div className="clearfix copy">&copy; {this.getYear()} {RT_API.siteName} | Powered by: <a href="https://github.com/jackreichert/a-wp-react-redux-theme">A React+Redux WordPress theme</a></div>
             </footer>
         );

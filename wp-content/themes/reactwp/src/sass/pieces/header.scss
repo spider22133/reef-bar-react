@@ -1,0 +1,187 @@
+.position-fixed {
+  position: absolute !important;
+  left: 0;
+  right: 0;
+  z-index: 4;
+}
+
+.navbar {
+  padding: 30px 70px;
+}
+
+.main-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  &.show {
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+.navbar-collapse.show {
+  opacity: .9;
+  background: #000000;
+
+  transition: -webkit-transform .8s cubic-bezier(.86, 0, .07, 1);
+  transition: transform .8s cubic-bezier(.86, 0, .07, 1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+
+//.navbar-collapse.show-reverse {
+//  transition: -webkit-transform .8s cubic-bezier(.86, 0, .07, 1);
+//  transition: transform .8s cubic-bezier(.86, 0, .07, 1);
+//
+//  -webkit-transform: translate3d(0,-100%,0);
+//  transform: translate3d(0,-100%,0);
+//}
+
+
+.navbar-collapse {
+  background: #0b0b0c;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  z-index: 10;
+  transition: -webkit-transform .8s cubic-bezier(.86, 0, .07, 1);
+  transition: transform .8s cubic-bezier(.86, 0, .07, 1);
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  overflow: hidden;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 20px 0;
+  text-transform: uppercase;
+  position: relative;
+  float: left;
+  letter-spacing: 3.3px;
+  text-align: left;
+  color: #dbdbdb;
+  transform: translate3d(0px, 0%, 0px);
+  &:focus {
+    color: #dbdbdb;
+  }
+  &:hover {
+    color: #dbdbdb;
+
+    .menu-line:before {
+      transition: -webkit-transform .6s cubic-bezier(.165, .84, .44, 1);
+      transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+      transition: transform .6s cubic-bezier(.165, .84, .44, 1), -webkit-transform .6s cubic-bezier(.165, .84, .44, 1);
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      opacity: 1
+    }
+    .menu-line:after {
+      transition: none;
+      opacity: 0
+    }
+    .menu-line:after {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0)
+    }
+  }
+  &.level2 {
+    padding: 10px 0;
+    .menu-txt {
+      font-size: 25px;
+    }
+  }
+
+  .menu-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    overflow: hidden;
+  }
+  .menu-line:before {
+    -webkit-transform: translate3d(-102%, 0, 0);
+    transform: translate3d(-102%, 0, 0);
+    opacity: 0;
+  }
+  .menu-line:after {
+    transition: -webkit-transform .8s cubic-bezier(.165, .84, .44, 1);
+    transition: transform .8s cubic-bezier(.165, .84, .44, 1);
+    transition: transform .8s cubic-bezier(.165, .84, .44, 1), -webkit-transform .8s cubic-bezier(.165, .84, .44, 1);
+    -webkit-transform: translate3d(102%, 0, 0);
+    transform: translate3d(102%, 0, 0);
+    opacity: 1;
+  }
+
+  .menu-line:after, .menu-line:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $primary;
+  }
+  .menu-txt {
+    position: relative;
+    display: block;
+    font-family: $m;
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 0.91;
+  }
+
+  .menu-link-txt {
+    position: relative;
+    display: block
+  }
+}
+
+.navbar-light .navbar-toggler {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.navbar-toggler {
+  position: relative;
+  z-index: 11;
+}
+
+.nav-item.disabled > .nav-link {
+  pointer-events: none;
+}
+
+.nav-item {
+  ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding-left: 20px;
+    li {
+      display: block;
+    }
+  }
+}
+.navbar-brand {
+  img {
+    width: 350px;
+    height: auto;
+  }
+}
+
+
+
+
+
+

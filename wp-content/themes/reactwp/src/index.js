@@ -6,7 +6,7 @@ import ReactDom from 'react-dom';
 import {Provider} from 'react-redux';
 import {Router, Route, Switch} from 'react-router-dom';
 import {createBrowserHistory} from 'history';
-
+import WebFont from 'webfontloader';
 import {createStore, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
@@ -29,6 +29,11 @@ const store = createStore(
 	)
 );
 
+WebFont.load({
+    google: {
+        families: ['Montserrat Web:400,500,600,700,800', 'sans-serif']
+    }
+});
 
 
 // store.subscribe(()=>{

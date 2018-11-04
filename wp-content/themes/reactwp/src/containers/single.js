@@ -38,7 +38,7 @@ class Single extends Component {
 
 
 function mapStateToProps({posts}) {
-    console.log({posts});
+    // console.log({posts});
     return {posts};
 }
 

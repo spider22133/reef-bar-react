@@ -22,7 +22,7 @@ export function fetchSEOHomePage() {
     return function (dispatch) {
         axios.get(`${WP_API_ENDPOINT}/frontpage`)
             .then(response => {
-                 console.log(response);
+                 // console.log(response);
                 dispatch({
                     type: FETCH_SPAGE,
                     payload: response.data

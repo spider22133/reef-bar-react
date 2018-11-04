@@ -21,6 +21,17 @@ if (!class_exists('Theme_Enqueue')) :
             add_action('wp_enqueue_scripts', [$this, 'theme'], 20);
         }
 
+        function get_main_logo() {
+            $logo_img = '';
+            if( $custom_logo_id = get_theme_mod('custom_logo') ){
+                $logo_img = wp_get_attachment_image( $custom_logo_id, 'full', false, array(
+                    'class'    => 'custom-logo',
+                    'itemprop' => 'logo',
+                ) );
+            }
+            return $logo_img;
+        }
+
         function theme()
         {
             wp_enqueue_style('bootstrap4-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', [], '4.1');
@@ -30,6 +41,7 @@ if (!class_exists('Theme_Enqueue')) :
                 'nonce' => wp_create_nonce('wp_rest'),
                 'siteName' => get_bloginfo('name'),
                 'pageTitle' => get_the_title(),
+                'mainLogo' => $this::get_main_logo(),
                 'baseUrl' => get_bloginfo('url'),
                 'staticHomepageId' => get_option('page_on_front'),
                 'siteDescription' => get_bloginfo('description'),
