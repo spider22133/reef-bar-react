@@ -13,6 +13,15 @@ import promise from 'redux-promise-middleware';
 import {createLogger} from 'redux-logger';
 import {routerMiddleware, connectRouter, ConnectedRouter} from 'connected-react-router';
 
+
+// Font Awesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas,fab);
+
+
 import rootReducer from './reducers';
 
 const siteBaseUrl = RT_API.baseUrl.replace(['http://','https://'],'').replace(window.location.origin.replace(['http://','https://'],''), '');

@@ -189,3 +189,20 @@ section {
     }
   }
 }
+.socials {
+  a{
+    padding-right: 45px;
+    &:hover {
+      svg {
+        color: $primary;
+      }
+    }
+
+    svg {
+      color: $p-text;
+    }
+  }
+}
+
+.contact_details {
+}

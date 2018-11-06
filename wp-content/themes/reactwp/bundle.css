@@ -189,6 +189,13 @@ section.full_height {
       right: 0;
       z-index: 3; }
 
+.socials a {
+  padding-right: 45px; }
+  .socials a:hover svg {
+    color: #ff9900; }
+  .socials a svg {
+    color: #dbdbdb; }
+
 .commentBox {
   padding: 1em; }
 
