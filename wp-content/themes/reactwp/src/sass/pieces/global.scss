@@ -1,4 +1,4 @@
-.h2,h2 {
+.h2, h2 {
   position: relative;
   font-family: $m;
   font-size: 87px;
@@ -20,7 +20,7 @@
   }
 }
 
-.h4,h4{
+.h4, h4 {
   font-family: $m;
   font-size: 21px;
   font-weight: 500;
@@ -28,7 +28,6 @@
   margin-bottom: 25px;
   color: #dbdbdb;
 }
-
 
 p {
   color: #dbdbdb;
@@ -161,6 +160,7 @@ section {
       width: 406px;
       height: 406px;
     }
+
     .insta_img_reveal {
       position: relative;
       flex-shrink: 0;
@@ -170,6 +170,7 @@ section {
       object-fit: cover;
       z-index: 1;
     }
+
     .insta_img_over {
       position: absolute;
       border-radius: 50%;
@@ -178,6 +179,7 @@ section {
       height: 406px;
       z-index: 2;
     }
+
     .insta_inner {
       position: absolute;
       margin: 0 auto;
