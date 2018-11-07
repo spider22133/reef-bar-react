@@ -165,7 +165,8 @@ section.full_height {
       border-radius: 50%;
       overflow: hidden;
       width: 406px;
-      height: 406px; }
+      height: 406px;
+      position: relative; }
     .main_info .insta .insta_img_reveal {
       position: relative;
       -ms-flex-negative: 0;
@@ -177,11 +178,13 @@ section.full_height {
       z-index: 1; }
     .main_info .insta .insta_img_over {
       position: absolute;
+      left: -697px;
+      top: -553px;
       border-radius: 50%;
-      background-color: #121212;
-      width: 406px;
-      height: 406px;
-      z-index: 2; }
+      border: 406px solid #000;
+      width: 1218px;
+      height: 1218px;
+      z-index: 3; }
     .main_info .insta .insta_inner {
       position: absolute;
       margin: 0 auto;

@@ -159,6 +159,7 @@ section {
       overflow: hidden;
       width: 406px;
       height: 406px;
+      position: relative;
     }
 
     .insta_img_reveal {
@@ -173,11 +174,13 @@ section {
 
     .insta_img_over {
       position: absolute;
+      left: -697px;
+      top: -553px;
       border-radius: 50%;
-      background-color: #121212;
-      width: 406px;
-      height: 406px;
-      z-index: 2;
+      border: 406px solid #000;
+      width: 1218px;
+      height: 1218px;
+      z-index: 3;
     }
 
     .insta_inner {
