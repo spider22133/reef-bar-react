@@ -40,7 +40,7 @@ const store = createStore(
 
 WebFont.load({
     google: {
-        families: ['Montserrat Web:400,500,600,700,800', 'sans-serif']
+        families: ['Montserrat:400,500,600,700,800']
     }
 });
 

@@ -40,8 +40,6 @@ class FrontPage extends Component {
 
         const staticHomepageId = RT_API.staticHomepageId;
         const {title, content, video, svg} = this.props.pageData;
-        // console.log(svg);
-        // console.log();
 
         return (
             <section className="container-fluid template-single p-0">
@@ -52,11 +50,11 @@ class FrontPage extends Component {
                         <WaterWave
                             style={{width: '100%', height: '100%', backgroundSize: 'contain', backgroundPosition: 'top'}}
                             imageUrl='/wp-content/uploads/2018/10/aqua.png'
-                            perturbance="0.02"
-                            resolution="512">
+                            perturbance={0.02}
+                            resolution={512} >
                         </WaterWave>
                     </div>
-                    <div className="gradient"></div>
+                    <div className="gradient"/>
                     <nav className="hero_menu">
                         <Menu name="short"/>
                     </nav>
@@ -68,7 +66,7 @@ class FrontPage extends Component {
                                          }
                                      }}
                                      playing
-                                     volume="0.1"
+                                     volume={0.1}
                                      loop
                                      muted
                                      width="100%"
