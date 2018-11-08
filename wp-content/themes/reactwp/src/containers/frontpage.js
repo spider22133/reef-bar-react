@@ -53,7 +53,7 @@ class FrontPage extends Component {
                     <div className="hero_content">
                         <WaterWave
                             style={{width: '100%', height: '100%', backgroundSize: 'contain', backgroundPosition: 'top'}}
-                            imageUrl='/wp-content/uploads/2018/11/aqua.png'
+                            imageUrl='/wp-content/uploads/2018/11/aquarium.png'
                             perturbance={0.02}
                             resolution={512}>
                         </WaterWave>
