@@ -16,19 +16,19 @@ class FrontPage extends Component {
         super(props);
 
         this.state = {
-            left: 0,
-            top: 0
+            x: 0,
+            y: 0
         };
     }
 
     _onMouseEnter(e) {
         // console.log('mouse enter');
-        this.setState({left: e.screenX, top: e.screenY});
+        this.setState({x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY});
     }
 
-    _onMouseLeave() {
+    _onMouseLeave(e) {
         // console.log('mouse leave');
-        this.setState({left: e.screenX, top: e.screenY});
+        this.setState({x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY});
     }
 
     componentWillMount() {
@@ -41,7 +41,7 @@ class FrontPage extends Component {
 
 
     render() {
-        const {top, left} = this.state;
+        const {x, y} = this.state;
         const staticHomepageId = RT_API.staticHomepageId;
         const {title, content, video, svg} = this.props.pageData;
 
@@ -53,7 +53,7 @@ class FrontPage extends Component {
                     <div className="hero_content">
                         <WaterWave
                             style={{width: '100%', height: '100%', backgroundSize: 'contain', backgroundPosition: 'top'}}
-                            imageUrl='/wp-content/uploads/2018/10/aqua.png'
+                            imageUrl='/wp-content/uploads/2018/11/aqua.png'
                             perturbance={0.02}
                             resolution={512}>
                         </WaterWave>
@@ -91,7 +91,7 @@ class FrontPage extends Component {
                                 <div className="insta d-flex justify-content-center">
                                     <div className="insta_circle d-flex align-self-center" onMouseEnter={this._onMouseEnter.bind(this)} onMouseLeave={this._onMouseLeave.bind(this)}>
                                         <img className="insta_img_reveal" src="/wp-content/uploads/2018/11/on-hover.png" alt=""/>
-                                        <div className="insta_img_over" style={{top: + top + 'px', left: + left + 'px'}}/>
+                                        <div className="insta_img_over" style={{left:  x + 'px', top:  y + 'px'}}/>
                                         <div className="insta_inner align-self-center">
                                             <div className="h4 text-center">OUR INSTAGRAM</div>
                                             <div className="text-center"><img src="/wp-content/uploads/2018/09/insta-icon.png" alt=""/></div>
