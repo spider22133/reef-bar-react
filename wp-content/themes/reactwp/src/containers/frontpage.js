@@ -5,10 +5,25 @@ import WaterWave from 'react-water-wave';
 import {Link} from 'react-router-dom';
 import {fetchSEOHomePage} from '../actions/index';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import posed from 'react-pose';
 
 import Menu from '../containers/parts/menu';
 import Header from '../components/header';
 import Footer from '../components/footer';
+
+
+const Circle = posed.div({
+    onMouseEnter: {
+        left: -406,
+        top: -406,
+        transition: {duration: 600}
+    },
+    onMouseLeave: {
+        left: -553,
+        top: -785,
+        transition: {duration: 600}
+    }
+});
 
 class FrontPage extends Component {
 
@@ -36,15 +51,13 @@ class FrontPage extends Component {
 
     componentDidUpdate() {
         document.title = `${this.props.pageData.title}`;
-
-
         document.onmousemove = this.mouseHandler;
     }
 
     mouseHandler(e) {
         const inCircle = this.state.inCircle;
 
-        if(inCircle) {
+        if (inCircle) {
 
             const rect = document.getElementById("insta_circle").getBoundingClientRect();
             const Left = rect.left + window.scrollX;
@@ -58,9 +71,9 @@ class FrontPage extends Component {
 
             const R = rect.width / 2;
 
-            if (((x - a)*(x - a) + (y-b)*(y-b)) < (R * R)) {
-                let getCoords = this.lineXY({x1:a, y1:b, x2:x, y2:y, l: R*2})
-                this.setState({x: (getCoords.x - (R + R*2) - Left), y: (getCoords.y - (R + R*2) - Top)})
+            if (((x - a) * (x - a) + (y - b) * (y - b)) < (R * R)) {
+                let getCoords = FrontPage.lineXY({x1: a, y1: b, x2: x, y2: y, l: R * 2});
+                this.setState({x: (getCoords.x - (R + R * 2) - Left), y: (getCoords.y - (R + R * 2) - Top)})
 
                 // here goes animation on state to center a,b
             }
@@ -69,8 +82,7 @@ class FrontPage extends Component {
     }
 
 
-    lineXY($c = [])
-    {
+    static lineXY($c = []) {
         let $l = Math.sqrt(Math.pow(Math.abs($c['x2'] - $c['x1']), 2) + Math.pow(Math.abs($c['y2'] - $c['y1']), 2));
 
         let $x = $c['x1'] + ($c['x2'] - $c['x1']) * $c['l'] / $l;
@@ -82,6 +94,10 @@ class FrontPage extends Component {
 
     render() {
         const {x, y} = this.state;
+        const {inCircle} = this.state;
+        const pose = inCircle ? 'onMouseEnter' : 'onMouseLeave';
+
+        console.log(pose);
         const staticHomepageId = RT_API.staticHomepageId;
         const {title, content, video, svg} = this.props.pageData;
 
@@ -129,10 +145,12 @@ class FrontPage extends Component {
                             </div>
                             <div className="col-12 col-md-4">
                                 <div className="insta d-flex justify-content-center">
-                                    <div id="insta_circle" className="insta_circle d-flex align-self-center" onMouseEnter={this._onMouseEnter.bind(this)}
-                                         onMouseLeave={this._onMouseLeave.bind(this)}>
+                                    <div id="insta_circle" className="insta_circle d-flex align-self-center"
+                                         onMouseEnter={() => this.state.inCircle ? this._onMouseLeave() : this._onMouseEnter()}
+                                         onMouseLeave={() => this.state.inCircle ? this._onMouseLeave() : this._onMouseEnter()}>
                                         <img className="insta_img_reveal" src="/wp-content/uploads/2018/11/on-hover.png" alt=""/>
-                                        <div className="insta_img_over" style={{left: x + 'px', top: y + 'px'}}/>
+                                        {/*<div className="insta_img_over" style={{left: x + 'px', top: y + 'px'}}/>*/}
+                                        <Circle className="insta_img_over" pose={pose}/>
                                         <div className="insta_inner align-self-center">
                                             <div className="h4 text-center">OUR INSTAGRAM</div>
                                             <div className="text-center"><img src="/wp-content/uploads/2018/09/insta-icon.png" alt=""/></div>
