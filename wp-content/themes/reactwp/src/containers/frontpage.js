@@ -14,21 +14,20 @@ class FrontPage extends Component {
 
     constructor(props) {
         super(props);
-
+        this.mouseHandler = this.mouseHandler.bind(this);
         this.state = {
             x: 0,
-            y: 0
+            y: 0,
+            inCircle: false
         };
     }
 
     _onMouseEnter(e) {
-        // console.log('mouse enter');
-        this.setState({x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY});
+        this.setState({inCircle: true});
     }
 
     _onMouseLeave(e) {
-        // console.log('mouse leave');
-        this.setState({x: e.nativeEvent.offsetX, y: e.nativeEvent.offsetY});
+        this.setState({inCircle: false});
     }
 
     componentWillMount() {
@@ -37,6 +36,47 @@ class FrontPage extends Component {
 
     componentDidUpdate() {
         document.title = `${this.props.pageData.title}`;
+
+
+        document.onmousemove = this.mouseHandler;
+    }
+
+    mouseHandler(e) {
+        const inCircle = this.state.inCircle;
+
+        if(inCircle) {
+
+            const rect = document.getElementById("insta_circle").getBoundingClientRect();
+            const Left = rect.left + window.scrollX;
+            const Top = rect.top + window.scrollY;
+
+            const a = rect.width / 2 + Left;
+            const b = rect.height / 2 + Top;
+
+            const x = e.pageX;
+            const y = e.pageY;
+
+            const R = rect.width / 2;
+
+            if (((x - a)*(x - a) + (y-b)*(y-b)) < (R * R)) {
+                let getCoords = this.lineXY({x1:a, y1:b, x2:x, y2:y, l: R*2})
+                this.setState({x: (getCoords.x - (R + R*2) - Left), y: (getCoords.y - (R + R*2) - Top)})
+
+                // here goes animation on state to center a,b
+            }
+        }
+
+    }
+
+
+    lineXY($c = [])
+    {
+        let $l = Math.sqrt(Math.pow(Math.abs($c['x2'] - $c['x1']), 2) + Math.pow(Math.abs($c['y2'] - $c['y1']), 2));
+
+        let $x = $c['x1'] + ($c['x2'] - $c['x1']) * $c['l'] / $l;
+        let $y = $c['y1'] + ($c['y2'] - $c['y1']) * $c['l'] / $l;
+
+        return {x: $x, y: $y};
     }
 
 
@@ -89,9 +129,10 @@ class FrontPage extends Component {
                             </div>
                             <div className="col-12 col-md-4">
                                 <div className="insta d-flex justify-content-center">
-                                    <div className="insta_circle d-flex align-self-center" onMouseEnter={this._onMouseEnter.bind(this)} onMouseLeave={this._onMouseLeave.bind(this)}>
+                                    <div id="insta_circle" className="insta_circle d-flex align-self-center" onMouseEnter={this._onMouseEnter.bind(this)}
+                                         onMouseLeave={this._onMouseLeave.bind(this)}>
                                         <img className="insta_img_reveal" src="/wp-content/uploads/2018/11/on-hover.png" alt=""/>
-                                        <div className="insta_img_over" style={{left:  x + 'px', top:  y + 'px'}}/>
+                                        <div className="insta_img_over" style={{left: x + 'px', top: y + 'px'}}/>
                                         <div className="insta_inner align-self-center">
                                             <div className="h4 text-center">OUR INSTAGRAM</div>
                                             <div className="text-center"><img src="/wp-content/uploads/2018/09/insta-icon.png" alt=""/></div>

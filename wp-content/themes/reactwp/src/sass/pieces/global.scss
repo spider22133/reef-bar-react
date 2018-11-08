@@ -89,6 +89,7 @@ section {
     //line-height: 115px;
     width: 70%;
     margin: 0 auto;
+    opacity: 0.8;
     left: 0;
     right: 0;
     height: 229px;
@@ -98,7 +99,7 @@ section {
 
   .hero_menu {
     position: absolute;
-    width: 70%;
+    width: 73%;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -157,7 +158,8 @@ section {
     .insta_circle {
       border-radius: 50%;
       overflow: hidden;
-      width: 406px;
+      min-width: 406px;
+      max-width: 406px;
       height: 406px;
       position: relative;
     }
