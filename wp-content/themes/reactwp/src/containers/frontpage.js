@@ -16,13 +16,19 @@ const Circle = posed.div({
     onMouseEnter: {
         left: -406,
         top: -406,
-        transition: {duration: 600}
+        transition: {duration: 300}
     },
     onMouseLeave: {
-        left: -553,
-        top: -785,
-        transition: {duration: 600}
-    }
+        left: function(left) {
+            // console.log(left);
+            return parseInt(left.left)} ,
+        top: function(top) {
+            // console.log(top);
+            return parseInt(top.top)} ,
+        transition: {duration: 300}
+    },
+
+
 });
 
 class FrontPage extends Component {
@@ -31,9 +37,10 @@ class FrontPage extends Component {
         super(props);
         this.mouseHandler = this.mouseHandler.bind(this);
         this.state = {
-            x: 0,
-            y: 0,
-            inCircle: false
+            x: -785,
+            y: -553,
+            inCircle: false,
+            stop: false
         };
     }
 
@@ -57,6 +64,7 @@ class FrontPage extends Component {
     mouseHandler(e) {
         const inCircle = this.state.inCircle;
 
+
         if (inCircle) {
 
             const rect = document.getElementById("insta_circle").getBoundingClientRect();
@@ -75,10 +83,14 @@ class FrontPage extends Component {
                 let getCoords = FrontPage.lineXY({x1: a, y1: b, x2: x, y2: y, l: R * 2});
                 this.setState({x: (getCoords.x - (R + R * 2) - Left), y: (getCoords.y - (R + R * 2) - Top)})
 
+                // let abc = this;
+                // setTimeout(function () {
+                //     abc.setState({stop: true});
+                // },100)
+
                 // here goes animation on state to center a,b
             }
         }
-
     }
 
 
@@ -94,10 +106,18 @@ class FrontPage extends Component {
 
     render() {
         const {x, y} = this.state;
-        const {inCircle} = this.state;
+        const {inCircle, stop} = this.state;
         const pose = inCircle ? 'onMouseEnter' : 'onMouseLeave';
+        let poseProps;
+        if(stop){
+            poseProps = {
+                left: x,
+                top:y
+            };
+        }
 
-        console.log(pose);
+
+        //console.log(pose);
         const staticHomepageId = RT_API.staticHomepageId;
         const {title, content, video, svg} = this.props.pageData;
 
@@ -150,7 +170,7 @@ class FrontPage extends Component {
                                          onMouseLeave={() => this.state.inCircle ? this._onMouseLeave() : this._onMouseEnter()}>
                                         <img className="insta_img_reveal" src="/wp-content/uploads/2018/11/on-hover.png" alt=""/>
                                         {/*<div className="insta_img_over" style={{left: x + 'px', top: y + 'px'}}/>*/}
-                                        <Circle className="insta_img_over" pose={pose}/>
+                                        <Circle className="insta_img_over" pose={pose} {...poseProps} />
                                         <div className="insta_inner align-self-center">
                                             <div className="h4 text-center">OUR INSTAGRAM</div>
                                             <div className="text-center"><img src="/wp-content/uploads/2018/09/insta-icon.png" alt=""/></div>

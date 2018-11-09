@@ -54,5 +54,6 @@
     "style-loader": "^0.19",
     "webfontloader": "^1.6.28",
     "webpack": "^3.10"
-  }
+  },
+  "devDependencies": {}
 }
