@@ -16,7 +16,7 @@ const Circle = posed.div({
     onMouseEnter: {
         left: -406,
         top: -406,
-        transition: {duration: 300}
+        transition: {duration: 400}
     },
     onMouseLeave: {
         left: function(left) {
@@ -25,7 +25,7 @@ const Circle = posed.div({
         top: function(top) {
             // console.log(top);
             return parseInt(top.top)} ,
-        transition: {duration: 300}
+        transition: {ease: 'easeIn',duration: 400}
     },
 
 
@@ -108,14 +108,13 @@ class FrontPage extends Component {
         const {x, y} = this.state;
         const {inCircle, stop} = this.state;
         const pose = inCircle ? 'onMouseEnter' : 'onMouseLeave';
-        let poseProps;
-        if(stop){
-            poseProps = {
+
+        // if(stop){
+           let poseProps = {
                 left: x,
                 top:y
             };
-        }
-
+        // }
 
         //console.log(pose);
         const staticHomepageId = RT_API.staticHomepageId;
@@ -172,7 +171,7 @@ class FrontPage extends Component {
                                         {/*<div className="insta_img_over" style={{left: x + 'px', top: y + 'px'}}/>*/}
                                         <Circle className="insta_img_over" pose={pose} {...poseProps} />
                                         <div className="insta_inner align-self-center">
-                                            <div className="h4 text-center">OUR INSTAGRAM</div>
+                                            <div className="h4 text-center" style={{color: "white"}}>OUR INSTAGRAM</div>
                                             <div className="text-center"><img src="/wp-content/uploads/2018/09/insta-icon.png" alt=""/></div>
                                         </div>
                                     </div>
