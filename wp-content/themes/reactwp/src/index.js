@@ -55,6 +55,7 @@ import Category from './containers/category';
 import Tag from './containers/tag';
 import Single from './containers/single';
 import FrontPage from './containers/frontpage';
+// import Services from './containers/services';
 
 
 ReactDom.render(
@@ -64,6 +65,7 @@ ReactDom.render(
 				<Route exact path="/" component={FrontPage}/>
 				<Route exact path="/blog/" component={Blog}/>
 				<Route path="/page/:pageNum" component={Blog}/>
+				{/*<Route path="/services/:slag" component={Services}/>*/}
 				<Route path="/search/:term" component={Search}/>
 				<Route path="/category/:slug/page/:pageNum" component={Category}/>
 				<Route path="/category/:slug/" component={Category}/>

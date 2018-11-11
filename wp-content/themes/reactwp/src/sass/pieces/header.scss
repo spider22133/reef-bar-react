@@ -154,8 +154,6 @@
 }
 
 .navbar-toggler {
-  width: 110px;
-  height: 76px;
   position: relative;
   z-index: 11;
 }
@@ -177,72 +175,21 @@
   }
 }
 .navbar-brand {
+  z-index: 1;
   img {
     width: 350px;
     height: auto;
   }
 }
-
-#nav-burger-line-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.hamburger-menu-text {
+  font-family: $m;
+  font-weight: 500;
+  font-size: 21px;
+  color: white;
+  display: inline-block;
+  padding-right: 15px;
+  vertical-align: middle;
 }
-#nav-menu-wrap {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate3d(0,-50%,0);
-  transform: translate3d(0,-50%,0);
-  overflow: hidden;
-  font-size: 13px;
-}
-
-.nav-burger-line-wrap {
-  position: absolute;
-  background: #fff;
-  width: 31px;
-  height: 3px;
-  overflow: hidden;
-}
-
-.nav-burger-line {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
-
-.nav-burger-line-wrap:first-child {
-  top: 28px;
-  left: 64px;
-}
-.nav-burger-line-wrap:nth-child(2) {
-  top: 36px;
-  left: 64px;
-}
-.nav-burger-line-wrap:nth-child(3) {
-  top: 44px;
-  left: 64px;
-}
-.nav-burger-line-wrap:nth-child(4) {
-  top: 36px;
-  left: 64px;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.nav-burger-line-wrap:nth-child(5) {
-  top: 36px;
-  left: 64px;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-
 
 
 

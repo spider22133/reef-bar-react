@@ -5,8 +5,9 @@ import {connect} from 'react-redux';
 import {fetchMenu} from '../../actions';
 
 
-
 class Menu extends Component {
+
+
     componentDidMount() {
         this.props.actions.fetchMenu(this.props.name);
     }
@@ -17,7 +18,7 @@ class Menu extends Component {
 
 
     renderMenu(menu,style) {
-        console.log("inMenu",style);
+        console.log("inMenu", this.props.collapsed);
         if (this.props.name === menu.name) {
             if (menu.name === "main_menu") {
                 return menu.items.map(itemlevel1 => {
@@ -79,9 +80,10 @@ class Menu extends Component {
     }
 
     render() {
-        let style = this.props.anim ? {transform: 'translate3d(0,100%,0)', transition: 'transform 1s cubic-bezier(.86, 0, .07, 1) 0s'} : {transform: 'translate3d(0px, 0%, 0px)', transition: 'transform 1s cubic-bezier(.86, 0, .07, 1) 0.5s'};
+        let collapsed = this.props.collapsed;
+        let style = collapsed ? {transform: 'translate3d(0,100%,0)', transition: 'transform 1s cubic-bezier(.86, 0, .07, 1) 0s'} : {transform: 'translate3d(0px, 0%, 0px)', transition: 'transform 1s cubic-bezier(.86, 0, .07, 1) 0.5s'};
 
-        console.log("inRender",style);
+        console.log("inRender", collapsed);
         return (
             <ul className={this.getClasses(this.props.menu.name)}>
                 {this.renderMenu(this.props.menu, style)}

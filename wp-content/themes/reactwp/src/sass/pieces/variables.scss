@@ -1,8 +1,16 @@
 $font-heading: 'mr-eaves-modern', Futura, 'Trebuchet MS', Arial, sans-serif;
 $font-body: 'mrs-eaves', Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+
+// colors
 $primary: #ff9900;
 $p-text: #dbdbdb;
 $bg: #191919;
+
+// Menu hamburger
+$hamburger-layer-color         : #fff !default;
+$hamburger-layer-border-radius : 0 !default;
+$hamburger-layer-height        : 2px !default;
+$hamburger-layer-width         : 40px !default;
 
 
 $m: 'Montserrat', sans-serif;

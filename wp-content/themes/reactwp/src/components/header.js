@@ -22,48 +22,23 @@ class Header extends Component {
     render() {
         const collapsed = this.state.collapsed;
 
-        const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right collapsed' : 'navbar-toggler navbar-toggler-right';
+        const classTwo = collapsed ? 'navbar-toggler navbar-toggler-right' : 'navbar-toggler navbar-toggler-right is-active';
         const classThree = collapsed ? 'hide' : 'show';
 
         return (
             <header className="navbar navbar-light position-fixed">
                 <div className="navbar-brand"><Link to='/' dangerouslySetInnerHTML={{__html: RT_API.mainLogo}}/></div>
-                <button onClick={this.toggleNavbar} className={`${classTwo}`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <button onClick={this.toggleNavbar} className={`${classTwo} hamburger hamburger--spring`} type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     {/*<span className="navbar-toggler-icon"/>*/}
-
-                        <div id="nav-menu-wrap">
-                            <div id="nav-menu" style={{transform: 'translate3d(0px, 0%, 0px)'}}>
-                                <div id="nav-menu-dark">MENU</div>
-                            </div>
-                        </div>
-                        <div id="nav-burger-line-container">
-                            <div className="nav-burger-line-wrap">
-                                <div className="nav-burger-line" style={{transform: 'translate3d(0%, 0px, 0px)'}}>
-                                </div>
-                            </div>
-                            <div className="nav-burger-line-wrap">
-                                <div className="nav-burger-line" style={{transform: 'translate3d(0%, 0px, 0px)'}}>
-                                </div>
-                            </div>
-                            <div className="nav-burger-line-wrap">
-                                <div className="nav-burger-line" style={{transform: 'translate3d(0%, 0px, 0px)'}}>
-                                </div>
-                            </div>
-                            <div className="nav-burger-line-wrap">
-                                <div className="nav-burger-line" style={{transform: 'translate3d(-100%, 0px, 0px)'}}>
-                                </div>
-                            </div>
-                            <div className="nav-burger-line-wrap">
-                                <div className="nav-burger-line" style={{transform: 'translate3d(100%, 0px, 0px)'}}>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div className="hamburger-menu-text">MENU</div>
+                    <span className="hamburger-box">
+                            <span className="hamburger-inner"/>
+                     </span>
                 </button>
                 <nav className={`main-menu ${classThree}`}>
                     <div className="container">
                         <div className="collapse navbar-collapse d-flex justify-content-center align-items-center" id="navbarResponsive">
-                            <Menu name="main_menu" anim={collapsed}/>
+                           <Menu name="main_menu" collapsed={collapsed}/>
                         </div>
                     </div>
                 </nav>
